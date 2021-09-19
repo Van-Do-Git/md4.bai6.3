@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/blog/edit/" method="post" th:object="${oldBlog}" enctype="multipart/form-data">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <input th:type="hidden" name="pathAudio" th:field="*{pathAudio}">
+    <input th:type="hidden" name="pathImage" th:field="*{pathImage}">
+    <textarea th:type="text" th:field="*{textArea}"></textarea>
+    <label>Up anh blog</label>
+    <input type="file" name="image">
+    <label>Up nhac blog</label>
+    <input type="file" name="audio">
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>

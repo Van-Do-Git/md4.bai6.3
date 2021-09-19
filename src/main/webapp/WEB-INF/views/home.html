@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/blog/create}"><button>Viết blog</button></a>
+<div th:each="blog :${blogs}">
+    <img th:src="@{'/fileUpload/'+${blog.pathImage}}" width="100" alt="">
+    <audio id="track" controls loop>
+        <source th:src="@{'/fileAudio/' + ${blog.pathAudio}}"type="audio/ogg">
+        <source th:src="@{'/fileAudio/' + ${blog.pathAudio}}"type="audio/mpeg">
+        <p>Your browser does not support the audio element</p>
+    </audio>
+    <a th:href="@{/blog/edit/{id}(id=${blog.id})}"><button>edit</button></a>
+    <a th:href="@{/blog/delete/{id}(id=${blog.id})}"><button>delete</button></a>
+    <p th:text="${blog.textArea}"></p>
+</div>
+</body>
+</html>
